@@ -258,8 +258,10 @@ case $DO_SET_MESH in
 		echo -en "Creating dnsmasq configuration file..."
 		cat <<EOF > /etc/dnsmasq.conf
 interface=br0
-address=/#/$BRIDGE_IP
-address=/apple.com/0.0.0.0
+#address=/#/$BRIDGE_IP
+address=/mesh.motorbike.network/$AP_IP
+adddress=/mybike.motorbike.network/$AP_IP
+address=/mybike.local/$AP_IP
 dhcp-range=$BR_DHCP_START,$BR_DHCP_END,$DHCP_NETMASK,$DHCP_LEASE
 EOF
 	rc=$?
@@ -317,7 +319,11 @@ hw_mode=g
 channel=$AP_CHAN
 beacon_int=100
 auth_algs=1
-wpa=0
+wpa=2
+wpa_passphrase=m0t0rb1k3
+wpa_key_mgmt=WPA-PSK
+wpa_pairwise=TKIP
+rsn_pairwise=CCMP
 ap_isolate=1
 macaddr_acl=0
 wmm_enabled=1
