@@ -256,11 +256,11 @@ case $DO_SET_MESH in
 
 		# configure dnsmasq
 		echo -en "Creating dnsmasq configuration file..."
-		cat <<EOF > /etc/dnsmasq.conf
+		cat <<EOF > /etc/dnsmasq.d/dnsmasq.conf
 interface=br0
 #address=/#/$BRIDGE_IP
 address=/mesh.motorbike.network/$AP_IP
-adddress=/mybike.motorbike.network/$AP_IP
+address=/mybike.motorbike.network/$AP_IP
 address=/mybike.local/$AP_IP
 dhcp-range=$BR_DHCP_START,$BR_DHCP_END,$DHCP_NETMASK,$DHCP_LEASE
 EOF
@@ -365,11 +365,11 @@ EOF
 		
 		# configure dnsmasq
 		echo -en "Creating dnsmasq configuration file..."
-		cat <<EOF > /etc/dnsmasq.conf
+		cat <<EOF > /etc/dnsmasq.d/dnsmasq.conf
 interface=wlan0
 #address=/#/$AP_IP
 address=/mesh.motorbike.network/$AP_IP
-adddress=/mybike.motorbike.network/$AP_IP
+address=/mybike.motorbike.network/$AP_IP
 address=/mybike.local/$AP_IP
 dhcp-range=$AP_DHCP_START,$AP_DHCP_END,$DHCP_NETMASK,$DHCP_LEASE
 EOF
