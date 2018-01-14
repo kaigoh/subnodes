@@ -361,8 +361,10 @@ EOF
 		echo -en "Creating dnsmasq configuration file..."
 		cat <<EOF > /etc/dnsmasq.conf
 interface=wlan0
-address=/#/$AP_IP
-address=/apple.com/0.0.0.0
+#address=/#/$AP_IP
+address=/mesh.motorbike.network/$AP_IP
+adddress=/mybike.motorbike.network/$AP_IP
+address=/mybike.local/$AP_IP
 dhcp-range=$AP_DHCP_START,$AP_DHCP_END,$DHCP_NETMASK,$DHCP_LEASE
 EOF
 		rc=$?
